@@ -543,17 +543,17 @@ export default class MultiStyleText extends PIXI.Text {
 			let line = outputTextData[i];
 			let linePositionX: number;
 
-			switch (this.withPrivateMembers()._style.align) {
-				case "left":
-					linePositionX = dropShadowPadding + maxStrokeThickness;
-					break;
-
+			switch (line[0].style.align) {
 				case "center":
 					linePositionX = dropShadowPadding + maxStrokeThickness + (maxLineWidth - lineWidths[i]) / 2;
 					break;
 
 				case "right":
 					linePositionX = dropShadowPadding + maxStrokeThickness + maxLineWidth - lineWidths[i];
+					break;
+
+				default:
+					linePositionX = dropShadowPadding + maxStrokeThickness;
 					break;
 			}
 
